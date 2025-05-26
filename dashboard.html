@@ -1,26 +1,94 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Dashboard</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DevPrem Dashboard</title>
+  <link rel="stylesheet" href="dashboard.css">
 </head>
 <body>
-  <h1>Welcome to Your Dashboard!</h1>
-  <p>You are now logged in.</p>
-  <a href="#" onclick="logout()">Logout</a>
+  <header>
+    <h1>Welcome, <span id="userName">User</span>!</h1>
+    <a href="#" onclick="logout()">Logout</a>
+  </header>  <main class="grid-container">
+    <div class="card" onclick="location.href='uiux.html';">
+      <img src="images/uiux.jpg" alt="UI/UX Design">
+      <h3>UI/UX Design Class</h3>
+    </div><div class="card" onclick="location.href='frontend.html';">
+  <img src="images/frontend.jpg" alt="Frontend">
+  <h3>Frontend Class</h3>
+</div>
 
-  <script>
+<div class="card" onclick="location.href='backend.html';">
+  <img src="images/backend.jpg" alt="Backend">
+  <h3>Backend Class</h3>
+</div>
+
+<div class="card" onclick="location.href='graphics.html';">
+  <img src="images/graphics.jpg" alt="Graphics Design">
+  <h3>Graphics Design Class</h3>
+</div>
+
+<div class="card" onclick="location.href='cyber.html';">
+  <img src="images/cyber.jpg" alt="Cybersecurity">
+  <h3>Cyber Security Class</h3>
+</div>
+
+<div class="card" onclick="location.href='digital.html';">
+  <img src="images/digital.jpg" alt="Digital Marketing">
+  <h3>Digital Marketing Class</h3>
+</div>
+
+<div class="card" onclick="location.href='mobile.html';">
+  <img src="images/mobile.jpg" alt="Mobile App Design">
+  <h3>Mobile App Design Class</h3>
+</div>
+
+<div class="card" onclick="location.href='game.html';">
+  <img src="images/game.jpg" alt="Game Design">
+  <h3>Game Design Class</h3>
+</div>
+
+<div class="card" onclick="location.href='microsoft.html';">
+  <img src="images/microsoft.jpg" alt="Microsoft Design">
+  <h3>Microsoft Design Class</h3>
+</div>
+
+<div class="card" onclick="location.href='explore.html';">
+  <img src="images/explore.jpg" alt="Explore More">
+  <h3>Explore More</h3>
+</div>
+
+<div class="card" onclick="location.href='president.html';">
+  <img src="images/president.jpg" alt="The President">
+  <h3>The President</h3>
+</div>
+
+<div class="card" onclick="location.href='business.html';">
+  <img src="images/business.jpg" alt="Business Hub">
+  <h3>Business Hub</h3>
+</div>
+
+<div class="card" onclick="location.href='webdesign.html';">
+  <img src="images/webdesign.jpg" alt="Web Design Service">
+  <h3>Need a Website? Let Our Experts Build It for You</h3>
+</div>
+
+  </main>  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const userEmail = sessionStorage.getItem("loggedInUser");
+      if (!userEmail) {
+        alert("You must log in first!");
+        window.location.href = "index.html";
+      } else {
+        const user = JSON.parse(localStorage.getItem(userEmail));
+        document.getElementById("userName").textContent = user.name;
+      }
+    });
+
     function logout() {
       sessionStorage.removeItem("loggedInUser");
       alert("Logged out successfully!");
       window.location.href = "index.html";
     }
-
-    if (!sessionStorage.getItem("loggedInUser")) {
-      alert("You must log in first!");
-      window.location.href = "index.html";
-    }
-  </script>
-</body>
+  </script></body>
 </html>
